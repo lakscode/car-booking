@@ -1,0 +1,82 @@
+/* app css stylesheet */
+body
+{
+font-size:10pt;
+font-family:Arial;
+}
+
+
+.header
+{
+height:55px;
+background-color: #333;
+}
+
+.loginbtn
+{
+padding:10px;
+float:right;
+color:#FFF;
+}
+
+.divTable
+{
+  margin:0 auto;
+  width: 90%;
+  margin-top:10px;   
+}
+.tableGrid {
+  width:100%;
+  border: 0.1em solid black;
+}
+
+.tableGrid , .tableGrid  td {
+ /* border: 1px solid grey;*/
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.tableGrid  th {
+ /* border: 1px solid grey; */
+  border-collapse: collapse;
+  padding: 5px;
+  background-color: #CCCCCC;
+}
+.tableGrid  td{
+  padding:10px;
+  vertical-align:middle;
+}
+
+.tableGrid tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+.tableGrid tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.tableGrid tr:hover {
+  background-color: #93ABFF;
+}
+
+.tableGrid input, .tableGrid select
+{
+padding:5px;
+}
+.tableGrid input[type="number"]
+{
+width:50px;
+}
+
+.tableGrid .icons
+{
+
+font-size:13pt;
+margin-right:5px;
+}
+
+.grid {
+margin:0 auto;
+margin-top:50px;
+width: 80%;
+height: 250px;
+}

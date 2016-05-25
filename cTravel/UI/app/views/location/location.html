@@ -1,0 +1,21 @@
+
+   <div class="divTable">
+	<h5>Loations List </h5>
+	<p style="text-align:right"><input type="text" ng-model="nameFilter" placeholder="Search..."/></p>
+    <table class="tableGrid">
+		<thead>
+		  <tr><th>Sl</th><th>Location</th><th>City</th><th>State</th><th colspan="2"><button ng-click="addLocation()"><span class="glyphicon glyphicon-plus"></span></button></th></tr>
+		</thead>
+		<tbody>
+		  <tr ng-repeat="location in locationsList | filter: nameFilter">
+			<td>{{$index + 1}}<input type="hidden" ng-model = "location._id" /></td>
+			<td><input required type="text" ng-model = "location.location" /></td>
+			<td><input required type="text" ng-model = "location.city" /></td>		
+			<td><input required type="text" ng-model = "location.state" /></td>
+
+			<td><a href="#" ng-click="saveLocation($index)" class="icons"><i class="fa fa-edit"></i></a><a href="#" ng-click="removeLocation($index)" class="icons"><i class="fa fa-trash"></i></a></td>
+		  </tr>
+		</tbody>
+	</table>
+	</div>
+

@@ -1,0 +1,23 @@
+
+   <div class="divTable">
+	<h5>Cars List </h5>
+	<p style="text-align:right"><input type="text" ng-model="nameFilter" placeholder="Search..."/></p>
+    <table class="tableGrid">
+		<thead>
+		  <tr><th>Sl</th><th>Name</th><th>Contact Number</th><th>Car Number</th><th>Location</th><th colspan="2"><button ng-click="addCar()"><span class="glyphicon glyphicon-plus"></span></button></th></tr>
+		</thead>
+		<tbody>
+		  <tr ng-repeat="car in carsList | filter: nameFilter">
+			<td>{{$index + 1}}<input type="hidden" ng-model = "car._id" /></td>
+			<td><input required type="text" ng-model = "car.name" /></td>
+			<td><input required type="text" ng-model = "car.phone" /></td>		
+			<td><input required type="text" ng-model = "car.carnumber" /></td>
+			<td><select  ng-model="car.location" ng-options="location._id as location.city for location in officeLocationsList"></select>	</td>	
+			
+			
+			<td><a href="#" ng-click="saveCar($index)" class="icons"><i class="fa fa-edit"></i></a><a href="#" ng-click="removeCar($index)" class="icons"><i class="fa fa-trash"></i></a></td>
+		  </tr>
+		</tbody>
+	</table>
+	</div>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Directory App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">  
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/style.css">  
+  <link rel="stylesheet" href="css/validation.css">   
+
+
+	
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+ <body ng-app="myApp" ng-controller="GridCtrl">
+        <input ng-model='filterValue'/><button ng-click='filter()'>Filter</button>
+		
+   <div id="grid1" class="grid" ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav></div>
+   
+  
+
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>  
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+	<script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+    <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
+	
+  <script src="grid.js"></script>
+
+</body>
+</html>

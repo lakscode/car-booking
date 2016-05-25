@@ -1,0 +1,22 @@
+
+<div class="header" ng-app="myApp" ng-controller="HeaderCtrl">
+
+  <ul ng-if="isLoggedin == true" class="topnav" style="float:left">
+     <li><a href="#/home">home</a></li>
+    <li><a href="#/cars">cars</a></li>
+    <li><a href="#/location">location</a></li>
+    <li><a href="#/office">office </a></li>	
+	 <li><a href="#/booking">book</a></li>
+	 <li><a href="#/employee">employee</a></li>	 
+	<!-- <li><a href="#/grid">grid</a></li>	 
+	 <li><a href="#/report">report</a></li>	 	--> 
+  <li class="icon">
+    <a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+  </li>
+</ul>
+
+	<div ng-if="isLoggedin == false" class="loginbtn"><a href="#/login">Login</a></div>
+	<div ng-if="isLoggedin == true" class="loginbtn"><span>{{username}}</span> &nbsp; &nbsp; <a ng-click="logoutUser()" href="javascript:void(0);" >Logout</a></div>
+	
+</div>
+<div style="clear:both"></div>
