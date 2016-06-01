@@ -44,6 +44,17 @@ console.log("in LocationCtrl ctrl");
   }; 
 
   $scope.removeLocation = function(index){
+   var dataDelete = $scope.locationsList[index];
+  postUrl = $scope.API_URL_LOCATIONS + '/' + dataDelete._id
+		var res = $http.delete(postUrl, dataDelete);
+		res.success(function(data, status, headers, config) {
+		$location.path('/locations');
+			$scope.message = data;
+		});
+		res.error(function(data, status, headers, config) {
+			alert( "failure message: " + JSON.stringify({data: data}));
+		});
+		
     $scope.locationsList.splice(index, 1);
   };  
   

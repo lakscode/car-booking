@@ -1,25 +1,22 @@
-	<div class="divTable">
-	<h5>Booking Details </h5>
-	<a href="javascript:void(0);" ng-click="addBooking()">Book</a> &nbsp;&nbsp; <p style="text-align:right"><input type="text" ng-model="nameFilter" placeholder="Search by Name..."/></p>
+
+   <div class="divTable">
+	<h5>Current Bookings List </h5>
+	<p style="text-align:right"><input type="text" ng-model="nameFilter" placeholder="Search..."/></p>
     <table class="tableGrid">
 		<thead>
-		  <tr><th>Sl</th><th>Name</th><th>Source</th><th>Destination</th><th>Time</th><th>Car Number</th></tr>
+		  <tr><th>Sl</th><th>Name</th><th>source</th><th>detsination</th><th>time</th><th>carnumber</th></tr>
 		</thead>
 		<tbody>
-		  <tr ng-repeat="booking in bookingsList | filter: nameFilter">
+		  <tr ng-repeat="booking in bookingList | filter: nameFilter">
 			<td>{{$index + 1}}<input type="hidden" ng-model = "booking._id" /></td>
-			<td><span>{{getEmployeeNameById(booking.name)}}</span></td>
-			<td><span>{{getSourceLocById(booking.source)}}</span></td>	
-			<td><span>{{getDestinationLocById(booking.destination)}}</span></td>	
-			<td><span>{{booking.time}}</span></td>
-			<td><span>{{getCarNumberById(booking.carnumber)}}</span></td>	
+			<td><label ng-model = "booking.name" /><span>{{getEmployeeNamebyId(booking.name)}}</span></td>
+			<td><label ng-model = "booking.source" /><span>{{getOfficeLocbyId(booking.source)}}</span></td>		
+			<td><label ng-model = "booking.destination" /><span>{{getLocbyId(booking.destination)}}</td>				
+			<td><label ng-model = "booking.time" /><span>{{booking.time}}</span></td>				
+			<td><label ng-model = "booking.carnumber" /><span>{{getCarNumberbyId(booking.carnumber)}}</span></td>				
+
 		  </tr>
 		</tbody>
 	</table>
-	<div ng-show="addBook">
-	sadgfsdg</div>
 	</div>
-  
 
-   
-  

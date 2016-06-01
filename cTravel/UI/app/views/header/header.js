@@ -8,10 +8,7 @@ angular.module('myApp.header', ['ngRoute'])
     controller: 'HeaderCtrl'
   });
 }])
-.controller('HeaderCtrl', function($scope, $http, $location, $rootScope, $window) {
- $scope.isLoggedin = $window.sessionStorage.isLoggedin;
-  $scope.username = $window.sessionStorage.currentUser;
-  
+.controller('HeaderCtrl', function($scope, $http, $location, $rootScope) {
   	
 	$rootScope.isLoggedin = localStorage.getItem('isLoggedin');
 	$rootScope.username = 	localStorage.getItem('currentUser');
@@ -20,9 +17,7 @@ angular.module('myApp.header', ['ngRoute'])
 $rootScope.$watch('isLoggedin', function(){
 console.log("is logged in");
 
- $scope.isLoggedin = $window.sessionStorage.isLoggedin;
-  $scope.username = $window.sessionStorage.currentUser;
-  	
+ 	
 	$scope.isLoggedin = localStorage.getItem('isLoggedin');
 	$scope.username = 	localStorage.getItem('currentUser');
 	
@@ -42,7 +37,7 @@ console.log("Is logged in " + $scope.isLoggedin);
   }
   else
   {
-  console.log("Islogged in is false");
+  console.log("Islogged in is false 1");
   $location.path('/login');
 
   }
@@ -57,7 +52,7 @@ console.log("Is logged in " + $scope.isLoggedin);
   else
   {
   
-    console.log("Islogged in is false");
+    console.log("Islogged in is false 2");
   $location.path('/login');
 
   }

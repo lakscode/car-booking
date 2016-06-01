@@ -5,7 +5,8 @@ var BookingSchema = new mongoose.Schema({
   source: String,
   destination: String,
   time: String,
-  carnumber: String
+  carnumber: String,
+  route: String
 });
 
 module.exports = mongoose.model('Booking', BookingSchema);

@@ -14,6 +14,9 @@ var cars = require('./routes/cars');
 var users = require('./routes/users');
 var bookings = require('./routes/bookings');
 var offices = require('./routes/offices');
+var travelroutes = require('./routes/travelroutes');
+var travelroutesdetails = require('./routes/travelroutesdetails');
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/TravelDB', function(err) {
     if(err) {
@@ -68,6 +71,11 @@ app.use('/users', users);
 
 app.use('/bookings', bookings);
  
+app.use('/travelroutes', travelroutes); 
+
+app.use('/travelroutesdetails', travelroutesdetails); 
+
+
 
 app.use(function(req, res, next) {
   next();

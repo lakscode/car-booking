@@ -19,6 +19,8 @@ angular.module('myApp.booking', ['ngRoute'])
 	$scope.API_URL_BOOKINGS=$rootScope.API_URL_BOOKINGS;	
 	$scope.API_URL_LOCATIONS=$rootScope.API_URL_LOCATIONS;
 	$scope.API_URL_CARS=$rootScope.API_URL_CARS;	  
+	$scope.API_URL_TRAVELROUTES=$rootScope.API_URL_TRAVELROUTES;	 
+	
 	
 		  /****** Getting employees list to populate in the dropdown ************/
 	  
@@ -85,6 +87,21 @@ angular.module('myApp.booking', ['ngRoute'])
         console.log(response.statusText);
     });
 	
+	
+		/******************** Getting routes list ************************/	  
+
+	$scope.travelRoutesList = [];
+	$http({
+        method : "GET",		
+        url : $scope.API_URL_TRAVELROUTES
+    }).then(function mySucces(response) {
+        $scope.travelRoutesList = response.data;
+    }, function myError(response) {
+        console.log(response.statusText);
+    });
+	
+	
+	
 	/*********************************** getting booking list ***********************/
 	
 	$scope.bookingsList = [];
@@ -127,6 +144,7 @@ angular.module('myApp.booking', ['ngRoute'])
 	
   $scope.removeBooking = function(index){
   
+  
    var dataInsert = $scope.bookingsList[index];
    
   console.log(dataInsert._id);
@@ -134,14 +152,15 @@ angular.module('myApp.booking', ['ngRoute'])
 		var res = $http.delete(postUrl, dataInsert);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
-			$location.path('/booking');
+			//$location.path('/booking');
 		});
 		res.error(function(data, status, headers, config) {
 			alert( "failure message: " + JSON.stringify({data: data}));
 		});
 		
-		
-    $scope.bookingsList.splice(index, 1);
+		$scope.bookingsList.splice(index, 1);
+	
+			return false;
   };  
   
 
@@ -177,7 +196,7 @@ angular.module('myApp.booking', ['ngRoute'])
 			return false;
 		}
 	});
-	
+
 	};
 	
 /*********************************** saving new bookings ***********************/		
@@ -194,7 +213,7 @@ angular.module('myApp.booking', ['ngRoute'])
 		var res = $http.put(postUrl, dataInsert);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
-			$location.path('/booking');
+			//$location.path('/booking');
 			});
 			res.error(function(data, status, headers, config) {
 			alert( "failure message: " + JSON.stringify({data: data}));
@@ -207,15 +226,23 @@ angular.module('myApp.booking', ['ngRoute'])
 		var res = $http.post(postUrl, dataInsert);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
-			$location.path('/booking');
+			//$location.path('/booking');
 			});
 		res.error(function(data, status, headers, config) {
 			alert( "failure message: " + JSON.stringify({data: data}));
 			});
 	}
-			
+				return false;
 			
 	};
+		
+		
+		$scope.getDetails = function (routeId) {
+		//$location.path('/booking');
+				alert(routeId);
+		return false;
+
+		};
 		
 		
 /*********************************** filtering data **********************/	
@@ -225,5 +252,26 @@ $scope.searchFilter = function (booking) {
     return !$scope.nameFilter || keyword.test(booking.name) ;
 };
   
+  
+  $scope.openRouteDetails = function (routeId)
+  {
+	alert(routeId);
+  	$scope.travelroutedetailsList = [];
+	console.log("Before http request");
+	
+	var dataInsert = { routeId:routeId};
+		var res = $http.post($scope.API_URL_TRAVELROUTESDETAILS_By_ROUTEID , dataInsert);
+		
+		res.success(function(data, status, headers, config) {
+			 $scope.travelroutedetailsList = data;
+			});
+			
+			
+    document.getElementById("myNav").style.display = "block";
+};
+
+$scope.closeNav = function() {
+    document.getElementById("myNav").style.display = "none";
+};
 
 });

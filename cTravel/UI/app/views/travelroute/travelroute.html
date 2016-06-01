@@ -1,0 +1,39 @@
+
+   <div class="divTable">
+	<h5>Travel Route List </h5>
+	<p style="text-align:right"><input type="text" ng-model="nameFilter" placeholder="Search..."/></p>
+    <table class="tableGrid">
+		<thead>
+		  <tr><th>Sl</th><th>Route Name</th><th colspan="2"><button ng-click="addTravelroute()"><span class="glyphicon glyphicon-plus"></span></button></th></tr>
+		</thead>
+		<tbody>
+		  <tr ng-repeat="travelroute in travelroutesList | filter: nameFilter">
+			<td>{{$index + 1}}<input type="hidden" ng-model = "travelroute._id" /></td>
+			<td><input required type="text" ng-model = "travelroute.name"  /></td>
+
+
+			<td>
+			<a href="#" ng-click="openNav($index)" class="icons"><i class="fa fa-list"></i></a>
+			<a href="#" ng-click="saveTravelroute($index)" class="icons"><i class="fa fa-edit"></i></a>
+			<a href="#" ng-click="removeTravelroute($index)" class="icons"><i class="fa fa-trash"></i></a>
+			</td>
+		  </tr>
+		</tbody>
+	</table>
+	</div>
+	
+	
+	<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()"><i class="fa fa-close"></i></a>
+  <div class="overlay-content">
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
+
+
+
+

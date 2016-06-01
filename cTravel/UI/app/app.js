@@ -12,7 +12,9 @@ angular.module('myApp', [
   'myApp.booking',
   'myApp.employee',
   'myApp.grid',  
-  'myApp.report',    
+  'myApp.report',   
+'myApp.travelroute',  
+'myApp.travelroutedetails',  
   'angularjs-datetime-picker'
 ])
 .config(['$routeProvider', function($routeProvider) {
@@ -20,16 +22,24 @@ angular.module('myApp', [
 //$routeProvider.otherwise({redirectTo: '/login'});
 }])
 .constant("config", {
-        "apiUrl": "http://20.201.190.93:3000"
+        "apiUrl": "http://localhost:3000"
     })
 .run(function($rootScope,  $window) {
     $rootScope.test = new Date();
-	$rootScope.API_URL = "http://20.201.190.93:3000";
+	$rootScope.API_URL = "http://localhost:3000";
 	$rootScope.API_URL_CARS = $rootScope.API_URL + "/cars";
 	$rootScope.API_URL_OFFICES = $rootScope.API_URL + "/offices";
 	$rootScope.API_URL_LOCATIONS = $rootScope.API_URL + "/locations";
 	$rootScope.API_URL_EMPLOYEES = $rootScope.API_URL + "/users";
 	$rootScope.API_URL_BOOKINGS = $rootScope.API_URL + "/bookings";
+	$rootScope.API_URL_TRAVELROUTES = $rootScope.API_URL + "/travelroutes";	
+
+	$rootScope.API_URL_TRAVELROUTESDETAILS = $rootScope.API_URL + "/travelroutesdetails";	
+	$rootScope.API_URL_TRAVELROUTESDETAILS_By_ROUTEID = $rootScope.API_URL + "/travelroutesdetails/routeId";	
+		
+	
+	
+	
 //	$rootScope.isLoggedin = 0;
 //	$window.sessionStorage.currentUser = "";
 //	$window.sessionStorage.isLoggedin = 0;	

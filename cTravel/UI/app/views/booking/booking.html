@@ -3,7 +3,7 @@
 	<p style="text-align:right"><input type="text" ng-model="nameFilter" placeholder="Search..."/></p>
     <table class="tableGrid">
 		<thead>
-		  <tr><th>Sl</th><th>Name</th><th>Source</th><th>Destination</th><th>Time</th><th>Car Number</th><th colspan="2"><button ng-click="addBooking()"><span class="glyphicon glyphicon-plus"></span></button></th></tr>
+		  <tr><th>Sl</th><th>Name</th><th>Source</th><th>Destination</th><th>Time</th><th>Car Number</th><th>Route</th><th colspan="2"><button ng-click="addBooking()"><span class="glyphicon glyphicon-plus"></span></button></th></tr>
 		</thead>
 		<tbody>
 		  <tr ng-repeat="booking in bookingsList | filter: nameFilter">
@@ -23,16 +23,41 @@
 			
 			<td>
 				<select ng-model="booking.carnumber" ng-options="car._id as car.carnumber for car in carNumbersList" ng-change="checkBooking($index)" ></select>	
-			</td>			
+			</td>	
 			<td>
-			<a href="#" ng-disabled="saveEnabled" ng-click="saveBooking($index)" class="icons"><i class="fa fa-edit"></i></a>
-			<a href="#" ng-click="removeBooking($index)" class="icons"><i class="fa fa-trash"></i></a>
+				<select ng-model="booking.route" ng-options="travelRoute._id as travelRoute.name for travelRoute in travelRoutesList" ></select>	
+				<a ng-click="openRouteDetails(booking.route)" class="icons"><i class="fa fa-question"></i></a>
+			</td>	
+			
+			
+			<td>
+			<a href="" ng-disabled="saveEnabled" ng-click="saveBooking($index)" class="icons"><i class="fa fa-edit"></i></a>
+			<a href="" ng-click="removeBooking($index)" class="icons"><i class="fa fa-trash"></i></a>
 			</td>
 		  </tr>
 		</tbody>
 	</table>
 	</div>
   
+
+  
+  	<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()"><i class="fa fa-close"></i></a>
+  <div class="overlay-content">
+    <table class="tableGrid popupTableGrid">
+		<thead>
+		  <tr><th>Sl</th><th>Location</th><th>Priority</th></tr>
+		</thead>
+		<tbody>
+		 <tr ng-repeat="travelroutedetail in travelroutedetailsList">
+			<td>{{$index + 1}}</td>
+			<td>{{travelroutedetail.name}}</td>
+			<td>{{travelroutedetail.priority}}</td>
+		</tr>
+		</tbody>
+		</table>
+  </div>
+</div>
 
    
   

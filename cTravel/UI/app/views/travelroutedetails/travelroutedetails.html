@@ -1,0 +1,21 @@
+
+   <div class="divTable">
+	<h5>Route Details List  - {{selectedRoute}} <div style="float:right"><a href="#/travelroute">Back</a> </div></h5>
+	<p style="text-align:right"><input type="text" ng-model="nameFilter" placeholder="Search..."/></p>
+    <table class="tableGrid">
+		<thead>
+		  <tr><th>Sl</th><th>Location</th><th>Route ID</th><th>Priority</th><th colspan="2"><button ng-click="addTravelroute()"><span class="glyphicon glyphicon-plus"></span></button></th></tr>
+		</thead>
+		<tbody>
+		  <tr ng-repeat="travelroutedetail in travelroutedetailsList | filter: nameFilter">
+			<td>{{$index + 1}}<input type="hidden" ng-model = "travelroutedetail._id" /></td>
+			<td><input required type="text" ng-model = "travelroutedetail.name" /></td>
+			<td><input type="hidden" ng-model = "travelroutedetail.routeId" ng-bind = "travelroutedetail.routeId=selId" />{{selectedRoute}}</td>		 
+			<td><input required type="number" ng-model = "travelroutedetail.priority" /></td>
+
+			<td><a href="" ng-click="saveTravelroute($index)" class="icons"><i class="fa fa-edit"></i></a><a href="" ng-click="removeTravelroute($index)" class="icons"><i class="fa fa-trash"></i></a></td>
+		  </tr>
+		</tbody>
+	</table>
+	</div>
+
